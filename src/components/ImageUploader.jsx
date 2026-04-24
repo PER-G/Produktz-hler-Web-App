@@ -25,7 +25,7 @@ export default function ImageUploader({ dataUrl, onImage, onClear, compact = fal
     onImage({ base64: res.base64, mediaType: res.mediaType, dataUrl: res.dataUrl })
   }
 
-  const sizeClasses = compact ? 'h-32' : 'h-48'
+  const sizeClasses = compact ? 'h-44' : 'h-56'
 
   return (
     <div
@@ -40,7 +40,7 @@ export default function ImageUploader({ dataUrl, onImage, onClear, compact = fal
         const file = e.dataTransfer.files?.[0]
         handleFile(file)
       }}
-      className={`relative ${sizeClasses} rounded-lg border-2 border-dashed transition cursor-pointer overflow-hidden ${
+      className={`relative ${sizeClasses} rounded-lg border-2 border-dashed transition cursor-pointer overflow-hidden bg-black/40 ${
         dragging
           ? 'border-accent bg-accent/10 shadow-glow'
           : 'border-slate-700 hover:border-accent/60 hover:bg-white/5'
@@ -59,7 +59,8 @@ export default function ImageUploader({ dataUrl, onImage, onClear, compact = fal
           <img
             src={dataUrl}
             alt={label}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
+            style={{ imageOrientation: 'from-image' }}
           />
           <button
             type="button"
