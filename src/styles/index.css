@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  min-height: 100%;
+  background: radial-gradient(1200px 800px at 20% -10%, rgba(6,182,212,0.08), transparent 60%),
+              radial-gradient(900px 600px at 110% 10%, rgba(59,130,246,0.06), transparent 60%),
+              #0a0e1a;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Glass panel helper */
+.glass {
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+.glass-strong {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+/* Scan line gradient */
+.scanline {
+  background: linear-gradient(180deg, rgba(6,182,212,0) 0%, rgba(6,182,212,0.9) 50%, rgba(6,182,212,0) 100%);
+  height: 3px;
+  box-shadow: 0 0 14px rgba(6,182,212,0.8);
+}
+
+/* Dual range slider track */
+.range-track {
+  position: relative;
+  height: 6px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+.range-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(6,182,212,0.6);
+}
+
+/* Custom range inputs */
+input[type="range"].dual {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  top: 0;
+}
+input[type="range"].dual::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #0a0e1a;
+  border: 2px solid #06b6d4;
+  box-shadow: 0 0 10px rgba(6,182,212,0.8);
+  cursor: pointer;
+}
+input[type="range"].dual::-moz-range-thumb {
+  pointer-events: auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #0a0e1a;
+  border: 2px solid #06b6d4;
+  box-shadow: 0 0 10px rgba(6,182,212,0.8);
+  cursor: pointer;
+}
+
+/* Hide number spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] { -moz-appearance: textfield; }
